@@ -8,12 +8,16 @@ union un {
 
 int main (int argc, char *argv[]) {
   union un s;
-  s.nu = 2017;
+  s.nu = 2015;
+
+  printf("s.id: %p\n", &s.id);  
+  printf("s.nu: %p\n", &s.nu);  
+  
   printf("s.id: %d\n", s.id);  
   printf("s.num: %d\n", s.nu);  
-  memset(&s, 0, sizeof(union un));
-  printf("s.id: %d\n", s.id);  
-  printf("s.num: %d\n", s.nu);  
+  //memset(&s, 0, sizeof(union un));
+  //printf("s.id: %d\n", s.id);  
+  //printf("s.num: %d\n", s.nu);  
 
   printf("%d\n", sizeof(s));
   return 0;
