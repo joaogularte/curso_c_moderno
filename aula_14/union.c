@@ -8,7 +8,7 @@ union un {
 
 int main (int argc, char *argv[]) {
   union un s;
-  s.nu = 2015;
+  s.id = 245;
 
   printf("s.id: %p\n", &s.id);  
   printf("s.nu: %p\n", &s.nu);  
