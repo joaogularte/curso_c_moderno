@@ -3,7 +3,7 @@
 
 void error(char *erro){
   fprintf( stderr,"Erro: %s\n", erro);
-  exit(1);
+  exit(8);
 }
 
 void tchau (void) {
