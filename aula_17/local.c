@@ -1,12 +1,15 @@
 #include <stdio.h>
 
 void function (void) {
-  int i;
-  for (i=0; i < 3; i++)
-    printf("%d\n", i);
+  register int i_statico = 0;
+  
+  for (; i_statico < 8; i_statico++)
+    printf("%d\n", i_statico);
 }
 
 int main (int argc, char *argv[]) {
+  function();
+  function();
   function();
   return 0;
 }
