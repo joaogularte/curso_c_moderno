@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
+#include "lib/petest.h"
 
 void error (char *mgs) {
   fprintf(stderr, "Error: %s\n", mgs);
@@ -12,9 +12,6 @@ void usage () {
   exit(1);
 }
 
-bool ispe(const unsigned char *file){
-  return (file[0] != 'M' || file[1] != 'Z');
-}
 
 int main (int argc, char *argv[]) {
   
@@ -37,7 +34,7 @@ int main (int argc, char *argv[]) {
     
   fclose(fh);
 
-  if (ispe(content_file)){
+  if (petest_ispe(content_file)){
     error("O formato deste arquivo não é PE"); 
   }
 
