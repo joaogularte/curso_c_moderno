@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 void error (char *mgs) {
   fprintf(stderr, "Error: %s\n", mgs);
@@ -11,21 +12,21 @@ void usage () {
   exit(1);
 }
 
-void ispe(const unsigned char *file){
-  if (file[0] != 'M' || file[1] != 'Z'){
-    error("O formato deste arquivo não é PE");
-  }
+bool ispe(const unsigned char *file){
+  return (file[0] != 'M' || file[1] != 'Z');
 }
 
 int main (int argc, char *argv[]) {
+  
   FILE *fh;
   unsigned char content_file[32];
+  
   if (argc != 2) {
     usage();
   }
   
   fh = fopen(argv[1], "rb");
-
+  
   if (fh == NULL) {
     error("Arquivo nao encontrado ou sem premissão de leitura");
   } 
@@ -33,9 +34,12 @@ int main (int argc, char *argv[]) {
   if (fread(content_file, 32, 1, fh) != 1){
     error("Não consegui ler os 32 bytes do arquivo");
   }
-  
-  ispe(content_file);
+    
+  fclose(fh);
 
-  printf("%c\n", content_file[0]);
+  if (ispe(content_file)){
+    error("O formato deste arquivo não é PE"); 
+  }
+
   return 0;
 }
