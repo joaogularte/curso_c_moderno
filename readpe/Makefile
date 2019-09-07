@@ -1,4 +1,4 @@
 all:
-	gcc -L${PWD}/lib -lpetest -o readpe readpe.c
+	gcc -o readpe readpe.c -lpetest
 clean:
 	rm -rf readpe
