@@ -15,28 +15,16 @@ void usage () {
 
 int main (int argc, char *argv[]) {
   
-  FILE *fh;
-  unsigned char content_file[32];
-  
+  PEFILE pe;  
+    
   if (argc != 2) {
     usage();
   }
   
-  fh = fopen(argv[1], "rb");
+  pe.filepath = argv[1]; 
+  puts(pe.filepath);
   
-  if (fh == NULL) {
-    error("Arquivo nao encontrado ou sem premissão de leitura");
-  } 
-  
-  if (fread(content_file, 32, 1, fh) != 1){
-    error("Não consegui ler os 32 bytes do arquivo");
-  }
-    
-  fclose(fh);
-
-  if (petest_ispe(content_file)){
-    error("O formato deste arquivo não é PE"); 
-  }
+  //petest_init(&pe);
 
   return 0;
 }
