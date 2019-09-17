@@ -29,9 +29,9 @@ typedef struct {
 
 typedef struct {
   char *filepath;
-  IMAGE_DOS_HEADER *hdr_dos;
+  IMAGE_DOS_HEADER *header_dos;
 } PEFILE;
 
 bool petest_init(PEFILE *pe);
-bool petest_ispe(const unsigned char *file);
+bool petest_ispe(PEFILE *pe);
 

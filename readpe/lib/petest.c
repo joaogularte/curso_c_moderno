@@ -5,18 +5,18 @@ bool petest_init(PEFILE *pe){
   if(!f){
     return false;
   }
-  pe->hdr_dos = malloc(sizeof(IMAGE_DOS_HEADER));
-  if(!pe->hdr_dos){
+  pe->header_dos = malloc(sizeof(IMAGE_DOS_HEADER));
+  if(!pe->header_dos){
     return false;
   }
   
-  fread(pe->hdr_dos, sizeof(IMAGE_DOS_HEADER), 1, f);
-
+  fread(pe->header_dos, sizeof(IMAGE_DOS_HEADER), 1, f);
+  
   fclose(f);
   return true;
 }
 
-bool petest_ispe(const unsigned char *file){
-  return (file[0] != 'M' || file[1] != 'Z');
+bool petest_ispe(PEFILE *pe){
+  return (pe->header_dos->e_magic == 0x5a4d);
 }
 

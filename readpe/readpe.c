@@ -24,7 +24,8 @@ int main (int argc, char *argv[]) {
   pe.filepath = argv[1]; 
   puts(pe.filepath);
   
-  //petest_init(&pe);
-
+  petest_init(&pe);
+  printf("%x\n", pe.header_dos->e_lfanew);
+  printf("%zu\n", sizeof(IMAGE_DOS_HEADER));
   return 0;
 }
