@@ -20,3 +20,8 @@ bool petest_ispe(PEFILE *pe){
   return (pe->header_dos->e_magic == 0x5a4d);
 }
 
+void petest_deinit(PEFILE *pe){
+  if(pe->header_dos){
+    free(pe->header_dos);
+  }
+}

@@ -34,4 +34,4 @@ typedef struct {
 
 bool petest_init(PEFILE *pe);
 bool petest_ispe(PEFILE *pe);
-
+void petest_deinit(PEFILE *pe);
