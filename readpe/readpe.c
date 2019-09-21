@@ -28,7 +28,7 @@ int main (int argc, char *argv[]) {
   if (!petest_ispe(&pe)) {
     error("Não é um pe");
   };
-  printf("%x\n", pe.header_dos->e_lfanew);
+  printf("%x\n", pe.pe_format.header_dos->e_lfanew);
   printf("%zu\n", sizeof(IMAGE_DOS_HEADER));
   petest_deinit(&pe);
   return 0;
