@@ -28,8 +28,11 @@ int main (int argc, char *argv[]) {
   if (!petest_ispe(&pe)) {
     error("Não é um pe");
   };
+  printf("%x\n", pe.pe_format.header_dos->e_magic);
   printf("%x\n", pe.pe_format.header_dos->e_lfanew);
+  printf("%x\n", pe.pe_format.signature);
   printf("%zu\n", sizeof(IMAGE_DOS_HEADER));
+  printf("%zu\n", sizeof(PE_FORMAT));
   petest_deinit(&pe);
   return 0;
 }

@@ -5,9 +5,12 @@
 
 #include "header_dos.h"
 
+#pragma pack(push, 1)
 typedef struct {
 	IMAGE_DOS_HEADER *header_dos;
+	uint32_t signature;
 } PE_FORMAT;
+#pragma pack(pop)
 
 typedef struct {
   char *filepath;

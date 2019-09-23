@@ -13,7 +13,11 @@ bool petest_init(PEFILE *pe){
   
   fread(pe->pe_format.header_dos, sizeof(IMAGE_DOS_HEADER), 1, f);
   
-  fclose(f);
+
+  fseek(f, pe->pe_format.header_dos->e_lfanew, SEEK_SET);
+  printf("%x\n", ftell(f));
+  fread(&(pe->pe_format.signature), sizeof(pe->pe_format.signature), 1, f);
+  //fclose(f);
   return true;
 }
 
