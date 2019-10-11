@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <inttypes.h>
 
-#include "header_dos.h"
+#include "dos_header.h"
 
 #pragma pack(push, 1)
 typedef struct {
