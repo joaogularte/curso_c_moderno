@@ -4,6 +4,7 @@
 #include <inttypes.h>
 
 #include "dos_header.h"
+#include "file_header.h"
 
 #pragma pack(push, 1)
 typedef struct {
